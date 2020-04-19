@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+encoding//WebContent/WEB-INF/struts-config.xml=UTF-8
+encoding//src/action/CreateMotorCycleAction.java=UTF-8
+encoding//src/action/ListMotorCycleAction.java=UTF-8

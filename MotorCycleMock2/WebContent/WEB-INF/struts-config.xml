@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts 
+Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="listForm" type="form.ListForm" />
+		<form-bean name="motorCycleForm" type="form.MotorCycleForm" />
+
+	</form-beans>
+	<action-mappings>
+		<!-- Action get List MotorCycle-->
+		<action path="/listMotorCycle" name="listForm" type="action.ListMotorCycleAction"
+			scope="request" input="/views/ListMotorCycle.jsp" validate="true">
+			<forward name="listMotorCycles" path="/views/ListMotorCycle.jsp" />
+			<forward name="listMotorCycleSearch" path="/views/ListMotorCycle.jsp" />
+		</action>
+		<action input="/views/CreateMotorCycle.jsp" path="/createMotorCycle" type="action.CreateMotorCycleAction"
+			scope="request"  validate="true" name="motorCycleForm">
+			<forward name="createMotor" path="/views/CreateMotorCycle.jsp" />
+		    <forward name="errorID" path="/views/CreateMotorCycle.jsp" /> 
+			<forward name="success" path="/listMotorCycle.do" />
+		</action>
+	     <action path="/updateMotorCycle" name="motorCycleForm" type="action.UpdateMotorCycleAction"
+			scope="request" input="/views/ListMotorCycle.jsp" validate="true">
+			<forward name="updateMotor" path="/views/UpdateMotorCycle.jsp" />
+			<forward name="success" path="/listMotorCycle.do" />
+		</action>
+		<action path="/deleteMotorCycle" scope="request" name="motorCycleForm"
+		 validate="true" input="/views/ListMotorCycle.jsp"
+		type="action.DeleteMotorCycleAction">
+		<forward name="deleteMotor" path="/listMotorCycle.do"></forward>
+		<forward name="success" path="/listMotorCycle.do"></forward>
+
+		</action>
+		<action path="/demoAjaxPage" scope="request" input="/views/CreateMotorCycle.jsp" name="motorCycleForm" type="action.AjaxListMotorCycle">
+		</action>
+		<action path="/demoAjaxPage" scope="request" input="/views/Home.jsp" name="motorCycleForm" type="action.AjaxListMotorCycle">
+		</action>
+	</action-mappings>
+	<message-resources parameter="action.ApplicationResources" />
+</struts-config>
