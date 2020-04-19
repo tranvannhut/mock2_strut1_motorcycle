@@ -16,6 +16,6 @@ package action;
 
 public class DemoClass {
   public static void main(String[] args) {
-	System.out.println("Nice to meet you");
+	System.out.println("Hello");
 }
 } 
